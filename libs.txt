@@ -1,0 +1,6 @@
+Ta-Lib
+BackTrader
+Zipline
+PyAlgoTrade
+Pyfolio
+Quantlib
