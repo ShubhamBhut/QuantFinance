@@ -34,10 +34,11 @@ class MyMACDStrategy(Strategy):
             self.sell()
 
 
-start_date = dt.datetime(2020, 1, 1)
-end_date = dt.datetime(2022, 1, 1)
+start_date = dt.datetime(2022, 1, 1)
+end_date = dt.datetime(2022, 6, 1)
 
-data = yf.download("AAPL", start_date, end_date)
+interval = "15m"
+data = yf.download("AAPL", start_date, end_date, interval=interval)
 # data = web.DataReader("AAPL", "stooq", start_date, end_date)
 backtest = Backtest(data, MyMACDStrategy, commission=0.02, exclusive_orders=True)
 print(backtest.run())
