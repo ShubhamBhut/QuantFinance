@@ -37,7 +37,7 @@ class MyMACDStrategy(Strategy):
 class MyRSIStrategy(Strategy):
 
     upper_bound = 70
-    lower_bound = 30
+    lower_bound = 30.3121
     rsi_window = 14
 
     def init(self):
@@ -51,21 +51,22 @@ class MyRSIStrategy(Strategy):
             self.buy()
 
 
-start_date = dt.datetime(2018, 1, 1)
-end_date = dt.datetime(2022, 1, 1)
+start_date = dt.datetime(2020, 4, 1)
+end_date = dt.datetime(2023, 1, 1)
 
 interval = "1d"
-data = yf.download("^NSEI", start_date, end_date, interval=interval)
+data = yf.download("AAPL", start_date, end_date, interval=interval)
 # data = web.DataReader("AAPL", "stooq", start_date, end_date)
 bt = Backtest(data, MyRSIStrategy, commission=0.02, exclusive_orders=True)
 stats = bt.optimize(
     upper_bound=range(40, 85, 5),
-    lower_bound=range(10, 55, 5),
-    rsi_window=range(10, 30, 2),
+    lower_bound=range(20, 45, 5),
+    rsi_window=range(10, 30),
     maximize="Return [%]",
     constraint=lambda params: params.upper_bound > params.lower_bound,
-    max_tries=500,
+    max_tries=5000,
 )
+
 
 print(stats)
 bt.plot()
