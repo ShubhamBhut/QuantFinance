@@ -34,12 +34,38 @@ class MyMACDStrategy(Strategy):
             self.sell()
 
 
-start_date = dt.datetime(2022, 1, 1)
-end_date = dt.datetime(2022, 6, 1)
+class MyRSIStrategy(Strategy):
 
-interval = "15m"
-data = yf.download("AAPL", start_date, end_date, interval=interval)
+    upper_bound = 70
+    lower_bound = 30
+    rsi_window = 14
+
+    def init(self):
+        price = self.data.Close
+        self.rsi = self.I(talib.RSI, self.data.Close, self.rsi_window)
+
+    def next(self):
+        if crossover(self.rsi, self.upper_bound):
+            self.position.close()
+        if crossover(self.lower_bound, self.rsi):
+            self.buy()
+
+
+start_date = dt.datetime(2018, 1, 1)
+end_date = dt.datetime(2022, 1, 1)
+
+interval = "1d"
+data = yf.download("^NSEI", start_date, end_date, interval=interval)
 # data = web.DataReader("AAPL", "stooq", start_date, end_date)
-backtest = Backtest(data, MyMACDStrategy, commission=0.02, exclusive_orders=True)
-print(backtest.run())
-backtest.plot()
+bt = Backtest(data, MyRSIStrategy, commission=0.02, exclusive_orders=True)
+stats = bt.optimize(
+    upper_bound=range(40, 85, 5),
+    lower_bound=range(10, 55, 5),
+    rsi_window=range(10, 30, 2),
+    maximize="Return [%]",
+    constraint=lambda params: params.upper_bound > params.lower_bound,
+    max_tries=500,
+)
+
+print(stats)
+bt.plot()
