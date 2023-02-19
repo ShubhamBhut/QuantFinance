@@ -2,19 +2,46 @@ Stocks test -
 
 Indian market-
 
-Uptrend-
-INFY - till 19-01-2022
+INFY - 
+Uptrend till 19-01-2022
 
-Sideways-
+HDFCBANK - 
+Uptrend till 16-02-2021
 
-Downtrend-
+NIFTY - 
+Uptrend till 26-10-2021
+Sideways after that
 
+BANKNIFTY
 
 Foreign markets-
 
+AAPL - 
+Uptrend till - 5-01-2022
+Sideways after that
+
+COP - Just interesting
+
+
 
 Derivatives-
+Varies as per time. Future plan.
 
+Commodities - 
+Note that commodities heavily relies on news rather than anything else, also India's MCX is not that big, so beaware of manipulation
 
 
 Crypto-
+BTC-
+Uptrend - 20-10-2020 to 14-04-2021
+Slide - till 17-07-2021 again uptrend till 8-11-2021
+Downtrend - till 6-09-2022
+
+ETH-
+Uptreand - till 16-05-2021 (pump in last a couple months)
+Slide - till 22-07-2021 again uptrend till 9-11-2021
+Downtrend- till 15-Jul-2022
+
+Luna-
+Uptrend- till 4-04-2022
+Just Dump after that
