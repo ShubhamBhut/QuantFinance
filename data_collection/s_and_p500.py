@@ -16,3 +16,6 @@ for row in rows:
 
 print(tickers)
 print(len(tickers))
+
+# With tickers we can query in yfinance and get desired data
+# However we also can webscrap barchart.com to get values as well as ticker, since it's not urgent, it's future plan
