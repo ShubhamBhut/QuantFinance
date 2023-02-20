@@ -1,0 +1,8 @@
+Some of the best free data sources are-
+yfinance
+Alpha Vantage
+Quandl
+NSE API
+
+For paid data sources-
+There are a ton of them, but I am not using them(for now atleast).
