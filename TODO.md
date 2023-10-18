@@ -1,0 +1,2 @@
+- Use time series analysis to check whether individual prices are more important or whether its better to use returns and for weekely period
+- Create a webapp frontend
